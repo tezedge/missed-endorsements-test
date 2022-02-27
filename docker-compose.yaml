@@ -13,7 +13,7 @@ services:
       - shared-data:/home/tezos
 
   tezedge-node:
-    image: tezedge:current-head-stats-improved
+    image: ${TEZEDGE_IMAGE:-tezedge/tezedge:latest}
     command: ["--network=sandbox", "--sandbox-patch-context-json-file=/tmp/shared/sandbox.json", "--p2p-port=9732", "--rpc-port=8732", "--log=terminal", "--log-level=trace", "--tezos-context-storage=irmin", "--peer-thresh-low=0", "--peer-thresh-high=10", "--identity-expected-pow=0.0"]
     volumes:
       - shared-data:/tmp/shared
